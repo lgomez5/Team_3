@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Team3.Views.TeacherHome">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Teacher Panel!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Post Homework" x:Name="PostHomework" Clicked="NavigatePostHomework"/>
+            <Button Text="View Posted Homework" x:Name="ViewHomework" Clicked="NavigateViewHomework"/>
+            <Button Text="View Grades" x:Name="ViewGrades" Clicked="NavigateViewGrades"/>
+            <Button Text="View Courses" x:Name="ViewCourses" Clicked="NavigateViewCourses"/>
+            <Button Text="Logout" x:Name="Logout" Clicked="LogoutButton"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
