@@ -37,5 +37,12 @@ namespace Team3.Data
                 return false;
             }
         }
+
+        public string GetRole(String username) {
+            var obj = _database.Table<User>()
+                        .Where(i => i.Username == username)
+                        .FirstOrDefaultAsync();
+            return obj.Result.UserType;
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace Team3.Views
             });
         }
 
-        public void OnButtonClicked(object sender, EventArgs e)
+        public async void OnButtonClicked(object sender, EventArgs e)
         {
             //(sender as Button).Text = "Click me again!";
             String username = usernameEntry.Text;
@@ -40,7 +40,15 @@ namespace Team3.Views
             bool obj = App.Database.CheckUserAsync(username, password);
 
             if (obj) {
-                Navigation.PushAsync(new MainPage());
+                // get loggedin user role
+                string userRole = App.Database.GetRole(username);
+                if (userRole == "teacher")
+                {
+                    await Navigation.PushModalAsync(new TeacherHome()); // avoid back button 
+                   // Navigation.PushAsync(new TeacherHome());
+                }else {
+                    await Navigation.PushAsync(new MainPage());
+                }
             }
         }
     }
