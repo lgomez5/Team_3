@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Team3.Models
 {
-    class Guardian
+    public class Guardian
     {
     }
 }
