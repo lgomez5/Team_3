@@ -19,17 +19,17 @@ namespace Team3.Data
         }
 
      
-        public Task<int> SaveUserAsync(User user)
+        public async Task<int> SaveUserAsync(User user)
         {
-             return _database.InsertAsync(user);
+             return await _database.InsertAsync(user);
         }
-        public bool CheckUserAsync(String username, String password) {
+        public async Task<bool> CheckUserAsync(String username, String password) {
 
-            var obj = _database.Table<User>()
-                            .Where(i => i.Username == username)
+            var obj = await _database.Table<User>()
+                            .Where(i => i.Username == username && i.Password == password)
                             .FirstOrDefaultAsync();
 
-            if (obj.Result.Password == password)
+            if (obj != null)
             {
                 return true;
             }
@@ -38,11 +38,11 @@ namespace Team3.Data
             }
         }
 
-        public string GetRole(String username) {
-            var obj = _database.Table<User>()
+        public async Task<string> GetRole(String username) {
+            var obj = await _database.Table<User>()
                         .Where(i => i.Username == username)
                         .FirstOrDefaultAsync();
-            return obj.Result.UserType;
+            return obj.UserType;
         }
     }
 }
