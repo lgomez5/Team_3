@@ -4,33 +4,18 @@
              x:Class="Team3.Views.AssignmentList">
     <ContentPage.Content>
         <StackLayout>
+            
             <Label Text="Assignment List"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"/>
-            <ListView x:Name="AssignmentListView"
-            ItemsSource="{Binding assignmentList}">
+            <ListView x:Name="AssignmentListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Title}" />
+                        <TextCell Text="{Binding Title} " />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <!--<ListView>
-                <ListView.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>mono</x:String>
-                        <x:String>monodroid</x:String>
-                        <x:String>monotouch</x:String>
-                        <x:String>monorail</x:String>
-                        <x:String>monodevelop</x:String>
-                        <x:String>monotone</x:String>
-                        <x:String>monopoly</x:String>
-                        <x:String>monomodal</x:String>
-                        <x:String>mononucleosis</x:String>
-                    </x:Array>
-                </ListView.ItemsSource>
-            </ListView>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

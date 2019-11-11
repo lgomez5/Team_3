@@ -16,21 +16,13 @@ namespace Team3.Views
         public AssignmentList ()
 		{
 			InitializeComponent();
-            
-            Assignment assignment = new Assignment {
-            Id = 1,
-            GradeId = 2,
-            CourseCode = "Comp122",
-            CreationDate = DateTime.Now,
-            SubmissionDate = DateTime.Now.ToShortDateString(),
-            Title = "Assignment 1",
-            Description = "Assignment 1 description",
-            Teacher = "Teacher 1",
-            Status = "pending"
-            };
-
-            assignmentList.Add(assignment);
-            //assignmentList = Task.Run(async () => await App.Database.GetAssignmentList()).Result;
+     
+            GetAssignment();
         }
-	}
+        private async void GetAssignment()
+        {
+            assignmentList = await App.Database.GetAssignmentList();
+            AssignmentListView.ItemsSource = assignmentList;
+        }
+    }
 }

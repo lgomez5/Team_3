@@ -12,8 +12,7 @@ namespace Team3.Data
 {
     public class UserDatabase
     {
-        public FirebaseClient firebase = new FirebaseClient("https://yourdbname.firebaseio.com/");
-
+        public FirebaseClient firebase = new FirebaseClient("https://yourfirebaseid.firebaseio.com/");
         readonly SQLiteAsyncConnection _database;
 
         public UserDatabase(string dbPath)
@@ -43,6 +42,25 @@ namespace Team3.Data
             else {
                 return null;
             }
+        }
+
+        public async Task<List<Assignment>> GetAssignmentList()
+        {
+            var assignmentlist = (await firebase
+              .Child("assignments")
+              .OnceAsync<Assignment>()).ToList();
+            List<Assignment> assignments = new List<Assignment>();
+            foreach (var assignment in assignmentlist)
+            {
+                Assignment obj = new Assignment();
+                obj.Id = assignment.Object.Id;
+                obj.GradeId = assignment.Object.GradeId;
+                obj.SubmissionDate = assignment.Object.SubmissionDate;
+                obj.Teacher = assignment.Object.Teacher;
+                obj.Title = assignment.Object.Title;
+                assignments.Add(obj);
+            }
+            return assignments;
         }
     }
 }
