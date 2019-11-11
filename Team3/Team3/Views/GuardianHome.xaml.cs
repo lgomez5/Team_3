@@ -18,6 +18,12 @@ namespace Team3.Views
         }
         protected override void OnAppearing()
         {
+
+        }
+
+        public async void PendingAssignment_BtnClick(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new AssignmentList()); 
         }
     }
 }

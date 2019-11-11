@@ -9,7 +9,7 @@
                 HorizontalOptions="CenterAndExpand" />
             <Button Text="Assignment pending status:" x:Name="submitButton1" 
                      VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"  Clicked="PendingAssignment_BtnClick" />
             <Button Text="Assignment completed status" x:Name="submitButton2"
                      VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand" />

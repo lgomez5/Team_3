@@ -23,6 +23,12 @@ namespace Team3.Data
         {
              return await _database.InsertAsync(user);
         }
+
+        public async Task<int> SaveAssignmentAsync(Assignment assignment)
+        {
+            return await _database.InsertAsync(assignment);
+        }
+
         public async Task<bool> CheckUserAsync(String username, String password) {
 
             var obj = await _database.Table<User>()
@@ -37,12 +43,18 @@ namespace Team3.Data
                 return false;
             }
         }
-
+        
         public async Task<string> GetRole(String username) {
             var obj = await _database.Table<User>()
                         .Where(i => i.Username == username)
                         .FirstOrDefaultAsync();
             return obj.UserType;
         }
+
+        //public async Task<List<Assignment>> GetAssignmentList()
+        //{
+        //    var obj = await _database.Table<Assignment>().ToListAsync();
+        //    return obj;
+        //}
     }
 }

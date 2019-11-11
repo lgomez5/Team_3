@@ -33,7 +33,7 @@ namespace Team3.Views
 
             int i1 = Task.Run(async () => await App.Database.SaveUserAsync(new Models.User
             {
-                Id = 123,
+                Id = 125,
                 Username = "user1",
                 FirstName = "piyush",
                 LastName = "sehli",
@@ -44,7 +44,7 @@ namespace Team3.Views
 
             int i2 = Task.Run(async () => await App.Database.SaveUserAsync(new Models.User
             {
-                Id = 123,
+                Id = 125,
                 Username = "user2",
                 FirstName = "parth",
                 LastName = "jani",
@@ -52,6 +52,44 @@ namespace Team3.Views
                 UserType = "guardian",
                 DateCreated = DateTime.Now
             })).Result;
+
+            int i3 = Task.Run(async () => await App.Database.SaveUserAsync(new Models.User
+            {
+                Id = 126,
+                Username = "jer",
+                FirstName = "jerald",
+                LastName = "siby",
+                Password = "pass",
+                UserType = "guardian",
+                DateCreated = DateTime.Now
+            })).Result;
+
+            //creating mock data for Assignement list (Guardian implementation)
+            //int a1 = Task.Run(async () => await App.Database.SaveAssignmentAsync(new Models.Assignment
+            //{
+            //    Id = 1,
+            //    GradeId = 123,
+            //    CourseCode = "COM123",
+            //    CreationDate = DateTime.Now,
+            //    SubmissionDate = DateTime.Now,
+            //    Title = "Assignement 1",
+            //    Description = "Description for Assignment 1",
+            //    Teacher = "Teacher 1",
+            //    Status = "Pending"
+            //})).Result;
+
+            //int a2 = Task.Run(async () => await App.Database.SaveAssignmentAsync(new Models.Assignment
+            //{
+            //    Id = 2,
+            //    GradeId = 124,
+            //    CourseCode = "COM124",
+            //    CreationDate = DateTime.Now,
+            //    SubmissionDate = DateTime.Now,
+            //    Title = "Assignement 2",
+            //    Description = "Description for Assignment 2",
+            //    Teacher = "Teacher 2",
+            //    Status = "Completed"
+            //})).Result;
 
             //await DisplayAlert("Result", (i+i1+i2).ToString(), "OK");
 
