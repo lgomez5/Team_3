@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using Firebase.Database;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,5 +17,9 @@ namespace Team3.Models
         public string UserType { get; set; }
         public DateTime DateCreated { get; set; }
 
+        public static explicit operator User(FirebaseObject<User> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
