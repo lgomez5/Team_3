@@ -22,7 +22,7 @@ namespace Team3.Views
             GradeId = 2,
             CourseCode = "Comp122",
             CreationDate = DateTime.Now,
-            SubmissionDate = DateTime.Now,
+            SubmissionDate = DateTime.Now.ToShortDateString(),
             Title = "Assignment 1",
             Description = "Assignment 1 description",
             Teacher = "Teacher 1",
