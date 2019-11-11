@@ -15,5 +15,8 @@ namespace Team3.Models
         public string SubmissionDate { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string TeacherUsername { get; set; }
+        public string status { get; set; }
+
     }
 }
