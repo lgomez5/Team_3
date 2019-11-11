@@ -23,7 +23,6 @@ namespace Team3.Views
 
             Assignment assignment = new Assignment
             {
-                Id = 1,
                 Title=AssignmentTitle.Text,
                 Description = DescriptionEntry.Text,
                 GradeId=gradeId,

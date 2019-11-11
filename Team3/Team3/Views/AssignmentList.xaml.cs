@@ -16,10 +16,9 @@ namespace Team3.Views
         public AssignmentList ()
 		{
 			InitializeComponent();
-            
+     
             GetAssignment();
         }
-
         private async void GetAssignment()
         {
             assignmentList = await App.Database.GetAssignmentList();

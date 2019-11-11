@@ -16,6 +16,8 @@ namespace Team3.Models
         public string LastName { get; set; }
         public string UserType { get; set; }
         public DateTime DateCreated { get; set; }
+        public int GradeId { get; set; }
+        public string CourseCode { get; set; }
 
         public static explicit operator User(FirebaseObject<User> v)
         {

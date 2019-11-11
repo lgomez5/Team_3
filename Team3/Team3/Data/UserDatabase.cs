@@ -12,9 +12,7 @@ namespace Team3.Data
 {
     public class UserDatabase
     {
-
         public FirebaseClient firebase = new FirebaseClient("https://yourfirebaseid.firebaseio.com/");
-
         readonly SQLiteAsyncConnection _database;
 
         public UserDatabase(string dbPath)
@@ -23,7 +21,6 @@ namespace Team3.Data
             _database.CreateTableAsync<User>().Wait();
         }
 
-     
         public async Task SaveUserAsync(User user)
         {
             await firebase.Child("users").PostAsync(user);
@@ -34,7 +31,6 @@ namespace Team3.Data
         }
 
         public async Task<User> CheckUserAsync(string username, string password) {
-
             var user= (await firebase
               .Child("users")
               .OnceAsync<User>()).Where(a => a.Object.Username == username && a.Object.Password == password).FirstOrDefault().Object;
