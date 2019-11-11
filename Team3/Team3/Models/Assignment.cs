@@ -12,7 +12,7 @@ namespace Team3.Models
         public int GradeId { get; set; }
         public string CourseCode { get; set; }
         public DateTime CreationDate { get; set; }
-        public DateTime SubmissionDate { get; set; }
+        public string SubmissionDate { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
     }
