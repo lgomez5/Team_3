@@ -12,6 +12,7 @@
                 HorizontalOptions="CenterAndExpand" />
             <Button Text="Post Homework" x:Name="PostHomework" Clicked="NavigatePostHomework"/>
             <Button Text="View Posted Homework" x:Name="ViewHomework" Clicked="NavigateViewHomework"/>
+            <Button Text="Create Credentials" Clicked="CreateUser"/>
             <Button Text="View Grades" x:Name="ViewGrades" Clicked="NavigateViewGrades"/>
             <Button Text="View Courses" x:Name="ViewCourses" Clicked="NavigateViewCourses"/>
             <Button Text="Logout" x:Name="Logout" Clicked="LogoutButton"/>

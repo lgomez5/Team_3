@@ -21,11 +21,11 @@ namespace Team3.Views
         {
 
         }
-        
+
         public async void PendingAssignment_BtnClick(object sender, EventArgs e)
         {
-            status= "pending";
-            await Navigation.PushModalAsync(new AssignmentList(status)); 
+            status = "pending";
+            await Navigation.PushModalAsync(new AssignmentList(status));
         }
         public async void CompletedAssignment_BtnClick(object sender, EventArgs e)
         {
