@@ -12,9 +12,7 @@ namespace Team3.Data
 {
     public class UserDatabase
     {
-
-        public FirebaseClient firebase = new FirebaseClient("https://xamarinfirebase-49182.firebaseio.com/");
-
+        public FirebaseClient firebase = new FirebaseClient("https://yourfirebaseid.firebaseio.com/");
         readonly SQLiteAsyncConnection _database;
 
         public UserDatabase(string dbPath)
@@ -23,7 +21,6 @@ namespace Team3.Data
             _database.CreateTableAsync<User>().Wait();
         }
 
-     
         public async Task SaveUserAsync(User user)
         {
             await firebase.Child("users").PostAsync(user);
@@ -34,7 +31,6 @@ namespace Team3.Data
         }
 
         public async Task<User> CheckUserAsync(string username, string password) {
-
             var user= (await firebase
               .Child("users")
               .OnceAsync<User>()).Where(a => a.Object.Username == username && a.Object.Password == password).FirstOrDefault().Object;
@@ -62,7 +58,6 @@ namespace Team3.Data
                 obj.SubmissionDate = assignment.Object.SubmissionDate;
                 obj.Teacher = assignment.Object.Teacher;
                 obj.Title = assignment.Object.Title;
-                obj.Status = assignment.Object.Status;
                 assignments.Add(obj);
             }
             return assignments;
