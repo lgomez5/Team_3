@@ -41,7 +41,7 @@ namespace Team3.Views
 
             await DisplayAlert(username, password, "OK");
 
-            User obj = await App.Database.CheckUserAsync(username, password);
+            User obj = Task.Run(async() => await App.Database.CheckUserAsync(username, password)).Result;
             await DisplayAlert(obj.Username, obj.UserType, "OK");
 
             if (obj !=null) {

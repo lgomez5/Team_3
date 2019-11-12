@@ -12,7 +12,7 @@ namespace Team3.Data
 {
     public class UserDatabase
     {
-        public FirebaseClient firebase = new FirebaseClient("https://yourfirebaseid.firebaseio.com/");
+        public FirebaseClient firebase = new FirebaseClient("https://yourdbname.firebaseio.com/");
         readonly SQLiteAsyncConnection _database;
 
         public UserDatabase(string dbPath)
@@ -26,12 +26,14 @@ namespace Team3.Data
             await firebase.Child("users").PostAsync(user);
         }
 
-        public async Task SaveAssignmentAsync(Assignment assignment) {
+        public async Task SaveAssignmentAsync(Assignment assignment)
+        {
             await firebase.Child("assignments").PostAsync(assignment);
         }
 
-        public async Task<User> CheckUserAsync(string username, string password) {
-            var user= (await firebase
+        public async Task<User> CheckUserAsync(string username, string password)
+        {
+            var user = (await firebase
               .Child("users")
               .OnceAsync<User>()).Where(a => a.Object.Username == username && a.Object.Password == password).FirstOrDefault().Object;
 
@@ -39,25 +41,24 @@ namespace Team3.Data
             {
                 return user;
             }
-            else {
+            else
+            {
                 return null;
             }
         }
 
-        public async Task<List<Assignment>> GetAssignmentList()
+        public async Task<List<Assignment>> GetAssignmentList(string status)
         {
             var assignmentlist = (await firebase
               .Child("assignments")
-              .OnceAsync<Assignment>()).ToList();
+              .OnceAsync<Assignment>()).Where(a => a.Object.Status == status).ToList();
+
             List<Assignment> assignments = new List<Assignment>();
+            Assignment obj;
             foreach (var assignment in assignmentlist)
             {
-                Assignment obj = new Assignment();
-                obj.Id = assignment.Object.Id;
-                obj.GradeId = assignment.Object.GradeId;
-                obj.SubmissionDate = assignment.Object.SubmissionDate;
-                obj.Teacher = assignment.Object.Teacher;
-                obj.Title = assignment.Object.Title;
+                obj = new Assignment();
+                obj = assignment.Object;
                 assignments.Add(obj);
             }
             return assignments;

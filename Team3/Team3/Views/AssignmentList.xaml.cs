@@ -9,32 +9,36 @@ using Xamarin.Forms.Xaml;
 
 namespace Team3.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AssignmentList : ContentPage
-	{
-        string Status;
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AssignmentList : ContentPage
+    {
         List<Assignment> assignmentList = new List<Assignment>();
-        public AssignmentList (string status)
-		{
-			InitializeComponent();
-            Status = status;
-            GetAssignment();
+        public AssignmentList(string status)
+        {
+            InitializeComponent();
+            GetAssignment(status);
         }
 
-        private async void GetAssignment()
+
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            assignmentList = await App.Database.GetAssignmentList();
-            if (assignmentList != null)
+            var item = args.SelectedItem as Assignment;
+            if (item == null)
             {
-                if (Status == "pending")
-                {
-                    assignmentList.Remove(assignmentList.Single(s => s.Status == "completed"));
-                }
-                else if (Status == "completed")
-                {
-                    assignmentList.Remove(assignmentList.Single(s => s.Status == "pending"));
-                }
+                return;
             }
+            else {
+                await Navigation.PushModalAsync(new AssignmentDetails(item));
+            }
+            // Manually deselect item.
+            AssignmentListView.SelectedItem = null;
+        }
+
+
+        private async void GetAssignment(string Status)
+        {
+            assignmentList = await App.Database.GetAssignmentList(Status);
+            
             AssignmentListView.ItemsSource = assignmentList;
         }
     }
