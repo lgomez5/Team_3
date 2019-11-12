@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Team3.Views.CreateAssignment">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Post Assignment"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Entry x:Name="AssignmentTitle" Placeholder="Enter Title"/>
+
+            <Entry x:Name="DescriptionEntry" Placeholder="Enter Description"
+                    IsSpellCheckEnabled="false"
+                    IsTextPredictionEnabled="false"/>
+
+            <Picker x:Name="SelectGrade"
+                Title="Select Grade">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type  x:String}">
+                        <x:String>Grade 3</x:String>
+                        <x:String>Grade 4</x:String>
+                        <x:String>Grade 5</x:String>
+                        <x:String>Grade 6</x:String>
+                        <x:String>Grade 7</x:String>
+                        <x:String>Grade 8</x:String>
+                        <x:String>Grade 9</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker x:Name="SelectCourse"
+                Title="Select Course">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type  x:String}">
+                        <x:String>Course 1</x:String>
+                        <x:String>Course 2</x:String>
+                        <x:String>Course 3</x:String>
+                        <x:String>Course 4</x:String>
+                        <x:String>Course 5</x:String>
+                        <x:String>Course 6</x:String>
+                        <x:String>Course 7</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Entry x:Name="SubmissionDateTime" Placeholder="Submission Date Time"
+                    IsSpellCheckEnabled="false"
+                    IsTextPredictionEnabled="false"/>
+
+            <Button Text="Create Assignment" x:Name="submitButton"
+                Clicked="OnButtonClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Team3.Views.AddUser">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Add New User (Student/Guardian)"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Entry x:Name="Username" Placeholder="Enter Title"/>
+
+            <Entry x:Name="Password" Placeholder="Enter Password"
+                    IsSpellCheckEnabled="false"
+                    IsTextPredictionEnabled="false"/>
+
+            <Picker x:Name="SelectGrade"
+                Title="Select Grade">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type  x:String}">
+                        <x:String>Grade 3</x:String>
+                        <x:String>Grade 4</x:String>
+                        <x:String>Grade 5</x:String>
+                        <x:String>Grade 6</x:String>
+                        <x:String>Grade 7</x:String>
+                        <x:String>Grade 8</x:String>
+                        <x:String>Grade 9</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker x:Name="SelectCourse"
+                Title="Select Course">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type  x:String}">
+                        <x:String>Course 1</x:String>
+                        <x:String>Course 2</x:String>
+                        <x:String>Course 3</x:String>
+                        <x:String>Course 4</x:String>
+                        <x:String>Course 5</x:String>
+                        <x:String>Course 6</x:String>
+                        <x:String>Course 7</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker x:Name="SelectUsersType"
+                Title="Select User Type">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type  x:String}">
+                        <x:String>Student</x:String>
+                        <x:String>Guardian</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            
+
+            <Button Text="Create User" x:Name="submitButton"
+                Clicked="OnButtonClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

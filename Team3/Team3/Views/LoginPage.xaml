@@ -15,7 +15,7 @@
                     IsTextPredictionEnabled="false"
                     IsPassword="true" />
 
-            <Button Text="Click me" x:Name="submitButton"
+            <Button Text="LogIn" x:Name="submitButton"
                 Clicked="OnButtonClicked" />
         </StackLayout>
     </ContentPage.Content>

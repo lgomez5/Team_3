@@ -21,8 +21,11 @@ namespace Team3.Views
             await Navigation.PushModalAsync(new LoginPage()); // avoid back button 
         }
         public async void NavigatePostHomework(object sender, EventArgs e) {
-            await DisplayAlert("Alert", "Please add link to next page", "OK");
-            // Navigation.PushAsync(new TeacherHome()); use PushAsync to have a back navigation button
+            await Navigation.PushModalAsync(new CreateAssignment());
+        }
+        public async void CreateUser(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new AddUser());
         }
         public async void NavigateViewHomework(object sender, EventArgs e)
         {
