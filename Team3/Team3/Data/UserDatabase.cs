@@ -12,13 +12,18 @@ namespace Team3.Data
 {
     public class UserDatabase
     {
-        public FirebaseClient firebase = new FirebaseClient("https://yourdbname.firebaseio.com/");
+        public FirebaseClient firebase = new FirebaseClient("https://team3xamarin.firebaseio.com/");
         readonly SQLiteAsyncConnection _database;
 
         public UserDatabase(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<User>().Wait();
+        }
+
+        public UserDatabase()
+        {
+            Console.WriteLine("New object of DB class contstructed");
         }
 
         public async Task SaveUserAsync(User user)
@@ -46,7 +51,7 @@ namespace Team3.Data
                 return null;
             }
         }
-
+      
         public async Task<List<Assignment>> GetAssignmentList(string status)
         {
             var assignmentlist = (await firebase
@@ -56,6 +61,40 @@ namespace Team3.Data
             List<Assignment> assignments = new List<Assignment>();
             Assignment obj;
             foreach (var assignment in assignmentlist)
+            {
+                obj = new Assignment();
+                obj = assignment.Object;
+                assignments.Add(obj);
+            }
+            return assignments;
+        }
+
+        public async Task<List<Assignment>> GetGradeAssignmentList(int gradeid)
+        {
+            var GradeAssignmentList = (await firebase
+              .Child("assignments")
+              .OnceAsync<Assignment>()).Where(a => a.Object.GradeId == gradeid).ToList();
+
+            List<Assignment> assignments = new List<Assignment>();
+            Assignment obj;
+            foreach (var assignment in GradeAssignmentList)
+            {
+                obj = new Assignment();
+                obj = assignment.Object;
+                assignments.Add(obj);
+            }
+            return assignments;
+        }
+
+        public async Task<List<Assignment>> GetCourseAssignmentList(string coursecode)
+        {
+            var CourseAssignmentList = (await firebase
+              .Child("assignments")
+              .OnceAsync<Assignment>()).Where(a => a.Object.CourseCode == coursecode).ToList();
+
+            List<Assignment> assignments = new List<Assignment>();
+            Assignment obj;
+            foreach (var assignment in CourseAssignmentList)
             {
                 obj = new Assignment();
                 obj = assignment.Object;
