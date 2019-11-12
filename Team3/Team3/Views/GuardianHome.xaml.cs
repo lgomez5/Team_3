@@ -12,6 +12,7 @@ namespace Team3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GuardianHome : ContentPage
     {
+        string status;
         public GuardianHome()
         {
             InitializeComponent();
@@ -20,10 +21,16 @@ namespace Team3.Views
         {
 
         }
-
+        
         public async void PendingAssignment_BtnClick(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new AssignmentList()); 
+            status= "pending";
+            await Navigation.PushModalAsync(new AssignmentList(status)); 
+        }
+        public async void CompletedAssignment_BtnClick(object sender, EventArgs e)
+        {
+            status = "completed";
+            await Navigation.PushModalAsync(new AssignmentList(status));
         }
     }
 }

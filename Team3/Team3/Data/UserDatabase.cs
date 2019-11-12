@@ -13,7 +13,7 @@ namespace Team3.Data
     public class UserDatabase
     {
 
-        public FirebaseClient firebase = new FirebaseClient("https://yourfirebaseid.firebaseio.com/");
+        public FirebaseClient firebase = new FirebaseClient("https://xamarinfirebase-49182.firebaseio.com/");
 
         readonly SQLiteAsyncConnection _database;
 
@@ -62,6 +62,7 @@ namespace Team3.Data
                 obj.SubmissionDate = assignment.Object.SubmissionDate;
                 obj.Teacher = assignment.Object.Teacher;
                 obj.Title = assignment.Object.Title;
+                obj.Status = assignment.Object.Status;
                 assignments.Add(obj);
             }
             return assignments;
