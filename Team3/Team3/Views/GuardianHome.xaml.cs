@@ -21,6 +21,10 @@ namespace Team3.Views
         {
 
         }
+        public async void LogoutBtnClick(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new LoginPage());
+        }
 
         public async void PendingAssignment_BtnClick(object sender, EventArgs e)
         {
