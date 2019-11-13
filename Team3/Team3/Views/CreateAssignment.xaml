@@ -4,9 +4,9 @@
              x:Class="Team3.Views.CreateAssignment">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Post Assignment"
+            <Label Text="Post Assignment" FontSize="20"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" TextColor="#3399ff"/>
 
             <Entry x:Name="AssignmentTitle" Placeholder="Enter Title"/>
 
@@ -48,7 +48,7 @@
                     IsSpellCheckEnabled="false"
                     IsTextPredictionEnabled="false"/>
 
-            <Button Text="Create Assignment" x:Name="submitButton"
+            <Button Text="Create Assignment" BackgroundColor="#3399ff" TextColor="White" x:Name="submitButton"
                 Clicked="OnButtonClicked" />
         </StackLayout>
     </ContentPage.Content>

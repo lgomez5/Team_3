@@ -5,17 +5,18 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Label Text="Assignment List"
+            <Label Text="Assignment List" FontSize="20" BackgroundColor="#3399ff" TextColor="White"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"/>
-            <ListView x:Name="AssignmentListView" ItemSelected="OnItemSelected">
+            
+            <ListView x:Name="AssignmentListView" Margin="25" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
                                 <Label Text="{Binding Title}" 
                                 LineBreakMode="NoWrap" 
-                                FontSize="16" />
+                                FontSize="20" TextColor="#3399ff"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

@@ -19,21 +19,34 @@ namespace Team3.Views
 
         public async void OnButtonClicked(object sender, EventArgs e)
         {
-            string Gradeid = SelectGrade.SelectedItem.ToString();
-            int gradeId = Convert.ToInt32(Gradeid.Substring(Gradeid.Length - 1));
+            try { 
+                string Gradeid = SelectGrade.SelectedItem.ToString();
+                int gradeId = Convert.ToInt32(Gradeid.Substring(Gradeid.Length - 1));
 
-            User user = new User
-            {
-                Username = Username.Text,
-                Password = Password.Text,
-                GradeId = gradeId,
-                CourseCode = SelectCourse.SelectedItem.ToString(),
-                UserType = SelectUsersType.SelectedItem.ToString().ToLower(),
-                DateCreated = DateTime.Now
-            };
+                User user = new User
+                {
+                    Username = Username.Text,
+                    Password = Password.Text,
+                    GradeId = gradeId,
+                    CourseCode = SelectCourse.SelectedItem.ToString(),
+                    UserType = SelectUsersType.SelectedItem.ToString().ToLower(),
+                    DateCreated = DateTime.Now
+                };
 
-            await App.Database.SaveUserAsync(user);
-            await DisplayAlert("User Account", "New user created", "Ok");
+                await App.Database.SaveUserAsync(user);
+                await DisplayAlert("User Account", "New user created", "Ok");
+                SetFieldsEmpty();
+            }
+            catch(NullReferenceException ex){
+                await DisplayAlert("User Account Error", "Please fill all the fields", "Try Again");
+            }
+        }
+        public void SetFieldsEmpty() {
+            Username.Text = "";
+            Password.Text = "";
+            SelectCourse.SelectedItem = null;
+            SelectUsersType.SelectedItem = null;
+            SelectGrade.SelectedItem = null;
         }
     }
 }

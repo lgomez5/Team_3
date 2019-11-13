@@ -12,7 +12,7 @@ namespace Team3.Data
 {
     public class UserDatabase
     {
-        public FirebaseClient firebase = new FirebaseClient("https://yourdbname.firebaseio.com/");
+        public FirebaseClient firebase = new FirebaseClient("https://dbname.firebaseio.com/");
         readonly SQLiteAsyncConnection _database;
 
         public UserDatabase(string dbPath)

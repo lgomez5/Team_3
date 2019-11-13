@@ -35,30 +35,25 @@ namespace Team3.Views
 
         public async void OnButtonClicked(object sender, EventArgs e)
         {
-          
+
             string username = usernameEntry.Text;
             string password = passwordEntry.Text;
-
-            await DisplayAlert(username, password, "OK");
-
-            User obj = Task.Run(async() => await App.Database.CheckUserAsync(username, password)).Result;
-            await DisplayAlert(obj.Username, obj.UserType, "OK");
-
-            if (obj !=null) {
-               if (obj.UserType.Equals("teacher"))
-               {
-                    await Navigation.PushModalAsync(new TeacherHome());                                                                    
-               }
-               else if (obj.UserType.Equals("guardian"))
-               {
-                    await Navigation.PushModalAsync(new GuardianHome()); // avoid back button 
-               }
-               else {
-                    await Navigation.PushModalAsync(new TeacherHome());
-               }
-            }
-            else
+            try
             {
+                User obj = Task.Run(async () => await App.Database.CheckUserAsync(username, password)).Result;
+
+                if (!obj.Equals(null)) {
+                    if (obj.UserType.Equals("teacher"))
+                    {
+                        await Navigation.PushModalAsync(new TeacherHome());
+                    }
+                    else if (obj.UserType.Equals("guardian"))
+                    {
+                        await Navigation.PushModalAsync(new GuardianHome()); // avoid back button 
+                    }
+                }
+            }
+            catch (AggregateException ex) {
                 await DisplayAlert("Wrong username/password", "Please enter correct credentials", "Try Again");
             }
         }
