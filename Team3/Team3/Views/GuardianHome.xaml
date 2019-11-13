@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Team3.Views.GuardianHome">
+             x:Class="Team3.Views.GuardianHome"
+             Title="Home Page">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Guardian, Welcome to Team 3 App!"
