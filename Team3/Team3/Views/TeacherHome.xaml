@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Team3.Views.TeacherHome">
+             x:Class="Team3.Views.TeacherHome"
+             Title="Home Page">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Teacher Panel!"

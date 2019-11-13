@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Team3.Views.AssignmentList">
-    <ContentPage.Content>
+             x:Class="Team3.Views.AssignmentList"
+             Title="Assignment List">
+    
         <StackLayout>
 
-            <Label Text="Assignment List" FontSize="20" BackgroundColor="#3399ff" TextColor="White"
+        <Label Text="Assignment List" FontSize="20" TextColor="White"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"/>
             
@@ -24,5 +25,5 @@
             </ListView>
 
         </StackLayout>
-    </ContentPage.Content>
+   
 </ContentPage>

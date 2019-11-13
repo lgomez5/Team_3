@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Team3.Views.AddUser">
+             x:Class="Team3.Views.AddUser"
+             Title="Add New User">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Add New User (Student/Guardian)"
