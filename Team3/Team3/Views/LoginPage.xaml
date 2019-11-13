@@ -4,9 +4,13 @@
              x:Class="Team3.Views.LoginPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Team 3 Project!"
+            <Label Text="Welcome to Team 3 Project!" FontSize="20"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" TextColor="#3399ff"/>
+
+            <Label Text="ESHPTC" FontSize="18"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" TextColor="#3399ff"/>
 
             <Entry x:Name="usernameEntry" Placeholder="Enter Username"/>
 
@@ -15,7 +19,7 @@
                     IsTextPredictionEnabled="false"
                     IsPassword="true" />
 
-            <Button Text="LogIn" x:Name="submitButton"
+            <Button Text="LogIn" BackgroundColor="#3399ff" TextColor="White" x:Name="submitButton"
                 Clicked="OnButtonClicked" />
         </StackLayout>
     </ContentPage.Content>

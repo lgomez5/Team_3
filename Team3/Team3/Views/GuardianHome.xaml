@@ -6,14 +6,14 @@
         <StackLayout>
             <Label Text="Guardian, Welcome to Team 3 App!"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" FontSize="20" TextColor="#3399ff"/>
             <Button Text="Assignment pending status:" x:Name="submitButton1" 
                      VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"  Clicked="PendingAssignment_BtnClick" />
-            <Button Text="Assignment completed status" x:Name="submitButton2"
+                HorizontalOptions="CenterAndExpand" BackgroundColor="#3399ff" TextColor="White" Clicked="PendingAssignment_BtnClick" />
+            <Button Text="Assignment completed status" BackgroundColor="#3399ff" TextColor="White" x:Name="submitButton2"
                      VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand" Clicked="CompletedAssignment_BtnClick" />
-            <Button Text="Return to Login" x:Name="submitButton3"
+                HorizontalOptions="CenterAndExpand"  Clicked="CompletedAssignment_BtnClick" />
+            <Button Text="Return to Login" BackgroundColor="#3399ff" TextColor="White" x:Name="submitButton3"
                      VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

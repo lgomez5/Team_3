@@ -5,9 +5,13 @@
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
             <Label Text="Text:" FontSize="Medium" />
-            <Label Text="{Binding Title}" FontSize="Small"/>
+            <Label Text="{Binding Title}" FontSize="Small" TextColor="#3399ff"/>
             <Label Text="Description:" FontSize="Medium" />
-            <Label Text="{Binding Description}" FontSize="Small"/>
+            <Label Text="{Binding Description}" FontSize="Small" TextColor="#3399ff"/>
+            <Label Text="Submission:" FontSize="Medium" />
+            <Label Text="{Binding SubmissionDate}" FontSize="Small" TextColor="#3399ff"/>
+            <Label Text="Status:" FontSize="Medium" />
+            <Label Text="{Binding Status}" FontSize="Small" TextColor="#3399ff"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

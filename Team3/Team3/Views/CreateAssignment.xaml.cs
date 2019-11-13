@@ -18,22 +18,37 @@ namespace Team3.Views
 		}
 
         public async void OnButtonClicked(object sender, EventArgs e) {
-            string Gradeid = SelectGrade.SelectedItem.ToString();
-            int gradeId = Convert.ToInt32(Gradeid.Substring(Gradeid.Length-1));
+            try { 
+                string Gradeid = SelectGrade.SelectedItem.ToString();
+                int gradeId = Convert.ToInt32(Gradeid.Substring(Gradeid.Length-1));
 
-            Assignment assignment = new Assignment
+                Assignment assignment = new Assignment
+                {
+                    Title=AssignmentTitle.Text,
+                    Description = DescriptionEntry.Text,
+                    GradeId=gradeId,
+                    CourseCode=SelectCourse.SelectedItem.ToString(),
+                    SubmissionDate= SubmissionDateTime.Text,
+                    CreationDate = DateTime.Now,
+                    Status = "pending"
+                };
+
+                await App.Database.SaveAssignmentAsync(assignment);
+                await DisplayAlert("Assignment", "New assignment posted", "Ok");
+                SetFieldsEmpty();
+            }
+            catch (NullReferenceException ex)
             {
-                Id = 1,
-                Title=AssignmentTitle.Text,
-                Description = DescriptionEntry.Text,
-                GradeId=gradeId,
-                CourseCode=SelectCourse.SelectedItem.ToString(),
-                SubmissionDate= SubmissionDateTime.Text,
-                CreationDate = DateTime.Now
-            };
-
-            await App.Database.SaveAssignmentAsync(assignment);
-            await DisplayAlert("Assignment", "New assignment posted", "Ok");
+                await DisplayAlert("Post Assignment Error", "Please fill all the fields", "Try Again");
+            }
+        }
+        public void SetFieldsEmpty()
+        {
+            AssignmentTitle.Text = "";
+            DescriptionEntry.Text = "";
+            SubmissionDateTime.Text = "";
+            SelectCourse.SelectedItem = null;
+            SelectGrade.SelectedItem = null;
         }
 
     }

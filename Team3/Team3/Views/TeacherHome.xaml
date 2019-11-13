@@ -9,13 +9,13 @@
         <StackLayout>
             <Label Text="Teacher Panel!"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Post Homework" x:Name="PostHomework" Clicked="NavigatePostHomework"/>
-            <Button Text="View Posted Homework" x:Name="ViewHomework" Clicked="NavigateViewHomework"/>
-            <Button Text="Create Credentials" Clicked="CreateUser"/>
-            <Button Text="View Grades" x:Name="ViewGrades" Clicked="NavigateViewGrades"/>
-            <Button Text="View Courses" x:Name="ViewCourses" Clicked="NavigateViewCourses"/>
-            <Button Text="Logout" x:Name="Logout" Clicked="LogoutButton"/>
+                HorizontalOptions="CenterAndExpand" FontSize="20" TextColor="#3399ff" />
+            <Button Text="Post Homework" BackgroundColor="#3399ff" TextColor="White" x:Name="PostHomework" Clicked="NavigatePostHomework"/>
+            <Button Text="View Posted Homework" BackgroundColor="#3399ff" TextColor="White" x:Name="ViewHomework" Clicked="NavigateViewHomework"/>
+            <Button Text="Create Credentials" BackgroundColor="#3399ff" TextColor="White" Clicked="CreateUser"/>
+            <Button Text="View Grades" BackgroundColor="#3399ff" TextColor="White" x:Name="ViewGrades" Clicked="NavigateViewGrades"/>
+            <Button Text="View Courses" BackgroundColor="#3399ff" TextColor="White" x:Name="ViewCourses" Clicked="NavigateViewCourses"/>
+            <Button Text="Logout" BackgroundColor="#DB0000" TextColor="White" x:Name="Logout" Clicked="LogoutButton"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -6,9 +6,9 @@
         <StackLayout>
             <Label Text="Add New User (Student/Guardian)"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" TextColor="#3399ff" FontSize="20" />
 
-            <Entry x:Name="Username" Placeholder="Enter Title"/>
+            <Entry x:Name="Username" Placeholder="Enter Username"/>
 
             <Entry x:Name="Password" Placeholder="Enter Password"
                     IsSpellCheckEnabled="false"
@@ -56,7 +56,7 @@
             
 
             <Button Text="Create User" x:Name="submitButton"
-                Clicked="OnButtonClicked" />
+                Clicked="OnButtonClicked" BackgroundColor="#3399ff" TextColor="White" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
