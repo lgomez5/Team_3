@@ -10,10 +10,10 @@ using Xamarin.Forms.Xaml;
 namespace Team3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GuardianHome : ContentPage
+    public partial class StudentHome : ContentPage
     {
         string status;
-        public GuardianHome()
+        public StudentHome()
         {
             InitializeComponent();
         }
@@ -25,7 +25,6 @@ namespace Team3.Views
         {
             await Navigation.PushModalAsync(new LoginPage());
         }
-
         public async void PendingAssignment_BtnClick(object sender, EventArgs e)
         {
             status = "pending";
@@ -35,6 +34,10 @@ namespace Team3.Views
         {
             status = "completed";
             await Navigation.PushModalAsync(new AssignmentList(status));
+        }
+        public async void CourseInfo_BtnClick(object sender, EventArgs e)
+        {
+            await DisplayAlert("Alert", "Please add link to Course Information page", "OK");
         }
     }
 }
