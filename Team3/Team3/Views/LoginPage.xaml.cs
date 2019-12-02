@@ -22,7 +22,7 @@ namespace Team3.Views
         {
             base.OnAppearing();
            
-           await App.Database.SaveUserAsync(new Models.User {
+           /*await App.Database.SaveUserAsync(new Models.User {
                 Id=123,
                 Username="user2",
                 FirstName="team",
@@ -30,7 +30,7 @@ namespace Team3.Views
                 Password="password",
                 UserType="teacher",
                 DateCreated=DateTime.Now
-           });
+           });*/
         }
 
         public async void OnButtonClicked(object sender, EventArgs e)
