@@ -33,11 +33,7 @@ namespace Team3.Views
         }
         public async void NavigateViewGrades(object sender, EventArgs e)
         {
-            await DisplayAlert("Alert", "Please add link to next page", "OK");
-        }
-        public async void NavigateViewCourses(object sender, EventArgs e)
-        {
-            await DisplayAlert("Alert", "Please add link to next page", "OK");
+            await Navigation.PushModalAsync(new GradesList());
         }
     }
 }

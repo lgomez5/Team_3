@@ -12,9 +12,9 @@ namespace Team3.Data
 {
     public class UserDatabase
     {
-        public FirebaseClient firebase = new FirebaseClient("https://team3xamarin.firebaseio.com/");
+        public FirebaseClient firebase = new FirebaseClient("https://team3xamarin.firebaseio.com");
         readonly SQLiteAsyncConnection _database;
-
+        public User userInfo;
         public UserDatabase(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
@@ -44,6 +44,7 @@ namespace Team3.Data
 
             if (user != null)
             {
+                userInfo = user;
                 return user;
             }
             else
@@ -101,6 +102,60 @@ namespace Team3.Data
                 assignments.Add(obj);
             }
             return assignments;
+        }
+
+        /*public string GetGradeIdForUsername() {
+            return await (firebase
+              .Child("users").OnceSingleAsync<User>()).Where(a => a.Object.Username == username).GradeId;
+              //.OnceAsync<User>()).Where(a => a.Object.Username == username);
+        }*/
+
+        public async Task<List<Course>> GetCoursesList()
+        {
+            int gradeid = userInfo.GradeId;
+
+            var courses = (await firebase
+              .Child("courses")
+              .OnceAsync<Course>()).Where(a => a.Object.GradeId == gradeid).ToList();
+
+
+            List<Course> coursesList = new List<Course>();
+            
+            foreach (var course in courses)
+            {
+                coursesList.Add(course.Object);
+            }
+            return coursesList;
+        }
+
+        public async Task<List<Grade>> GetGradesList() {
+            
+            var grades = (await firebase
+              .Child("grades")
+              .OnceAsync<Grade>()).ToList();
+
+
+            List<Grade> gradesList = new List<Grade>();
+
+            foreach (var grade in grades)
+            {
+                gradesList.Add(grade.Object);
+            }
+            return gradesList;
+        }
+
+        public async Task<List<Course>> GetCoursesForGrade(int gradeid) {
+            var courses = (await firebase
+              .Child("courses")
+              .OnceAsync<Course>()).Where(a => a.Object.GradeId == gradeid).ToList();
+
+            List<Course> coursesList = new List<Course>();
+
+            foreach (var course in courses)
+            {
+                coursesList.Add(course.Object);
+            }
+            return coursesList;
         }
     }
 }
