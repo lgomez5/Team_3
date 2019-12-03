@@ -8,15 +8,15 @@
             <Label Text="Student, Welcome to Team 3 App!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" FontSize="20" TextColor="#3399ff"/>
-            <Button Text="Assignment pending status:" x:Name="submitButton4" 
+            <Button Text="Assignment pending status" x:Name="submitButton4" 
                      VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" BackgroundColor="#3399ff" TextColor="White" Clicked="PendingAssignment_BtnClick" />
             <Button Text="Assignment completed status" BackgroundColor="#3399ff" TextColor="White" x:Name="submitButton5"
                      VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand"  Clicked="CompletedAssignment_BtnClick" />
-            <Button Text="Course Information" BackgroundColor="#3399ff" TextColor="White" x:Name="submitButton6"
+            <Button Text="List of Courses" BackgroundColor="#3399ff" TextColor="White" x:Name="submitButton6"
                     VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="CenterAndExpand" Clicked="CourseInfo_BtnClick" />
+                    HorizontalOptions="CenterAndExpand" Clicked="CoursesList_BtnClick" />
             <Button Text="Return to Login" BackgroundColor="#3399ff" TextColor="White" x:Name="submitButton7"
                      VerticalOptions="CenterAndExpand" Clicked="LogoutBtnClick"
                 HorizontalOptions="CenterAndExpand" />

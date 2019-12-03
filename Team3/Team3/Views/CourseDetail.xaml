@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Team3.Views.CourseDetail">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Course Code:" FontSize="Medium" />
+            <Label Text="{Binding CourseCode}" FontSize="Small" TextColor="#3399ff"/>
+            <Label Text="Course Title:" FontSize="Medium" />
+            <Label Text="{Binding CourseName}" FontSize="Small" TextColor="#3399ff"/>
+            <Label Text="Description:" FontSize="Medium" />
+            <Label Text="{Binding CourseDescription}" FontSize="Small" TextColor="#3399ff"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

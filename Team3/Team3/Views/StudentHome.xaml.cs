@@ -35,9 +35,9 @@ namespace Team3.Views
             status = "completed";
             await Navigation.PushModalAsync(new AssignmentList(status));
         }
-        public async void CourseInfo_BtnClick(object sender, EventArgs e)
+        public async void CoursesList_BtnClick(object sender, EventArgs e)
         {
-            await DisplayAlert("Alert", "Please add link to Course Information page", "OK");
+            await Navigation.PushModalAsync(new CoursesList());
         }
     }
 }

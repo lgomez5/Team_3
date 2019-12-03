@@ -49,7 +49,10 @@ namespace Team3.Views
                     }
                     else if (obj.UserType.Equals("guardian"))
                     {
-                        await Navigation.PushModalAsync(new GuardianHome()); // avoid back button 
+                        await Navigation.PushModalAsync(new GuardianHome());
+                    }
+                    else{
+                        await Navigation.PushModalAsync(new StudentHome()); 
                     }
                 }
             }

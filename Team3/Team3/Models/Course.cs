@@ -7,8 +7,9 @@ namespace Team3.Models
 {
     public class Course
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
         public string CourseCode { get; set; }
+        public int GradeId { get; set; }
         public string CourseName { get; set; }
         public string CourseDescription { get; set; }
     }
