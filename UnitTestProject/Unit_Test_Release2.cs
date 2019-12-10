@@ -1,4 +1,4 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Team3;
 using Team3.Data;
 using Team3.Models;
@@ -11,25 +11,23 @@ using System.Collections;
 namespace UnitTestProject
 {
     [TestClass]
-    public class UnitTest1
+    public class Unit_Test_Release2
     {
         [TestMethod]
         public void TestMethod1()
         {
-            string checkUsername = "unittestuser";
-
-            User user = Task.Run(async()=>await App.Database.CheckUserAsync("unittestuser", "password")).Result;
             
-            //Assert to check username are same
-            Assert.AreEqual(checkUsername, user.Username);
+            List<Course> list = Task.Run(async () => await App.Database.GetCoursesList()).Result;
+
+            //check to make sure pending assignment list has count more than zero
+            Assert.AreNotEqual(0, list.Count);
         }
 
         [TestMethod]
         public void TestMethod2()
         {
-            string status = "pending";
 
-            List<Assignment> list = Task.Run(async () => await App.Database.GetAssignmentList(status)).Result;
+            List<Grade> list = Task.Run(async () => await App.Database.GetGradesList()).Result;
 
             //check to make sure pending assignment list has count more than zero
             Assert.AreNotEqual(0, list.Count);
@@ -38,18 +36,19 @@ namespace UnitTestProject
         [TestMethod]
         public void TestMethod3()
         {
-            string status = "completed";
+            int gradeid = 6;
 
-            List<Assignment> list = Task.Run(async () => await App.Database.GetAssignmentList(status)).Result;
+            List<Course> list = Task.Run(async () => await App.Database.GetCoursesForGrade(gradeid)).Result;
 
             //check to make sure completed assignment list has count more than zero
-            Assert.AreNotEqual(0, list.Count);
+            Assert.AreEqual(6, list[0].GradeId);
+
         }
 
         [TestMethod]
         public void TestMethod4()
         {
-            int gradeid = 6;
+            int gradeid = 9;
 
             List<Assignment> list = Task.Run(async () => await App.Database.GetGradeAssignmentList(gradeid)).Result;
 
@@ -61,7 +60,7 @@ namespace UnitTestProject
         [TestMethod]
         public void TestMethod5()
         {
-            string coursecode = "Course 4";
+            string coursecode = "Course 5";
 
             List<Assignment> list = Task.Run(async () => await App.Database.GetCourseAssignmentList(coursecode)).Result;
 
