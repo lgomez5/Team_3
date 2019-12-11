@@ -104,11 +104,22 @@ namespace Team3.Data
             return assignments;
         }
 
-        /*public string GetGradeIdForUsername() {
-            return await (firebase
-              .Child("users").OnceSingleAsync<User>()).Where(a => a.Object.Username == username).GradeId;
-              //.OnceAsync<User>()).Where(a => a.Object.Username == username);
-        }*/
+        public async Task<bool> ChangeAssignmentStatus(int id, string status) {
+            var updateAssignment = (await firebase
+              .Child("assignments")
+              .OnceAsync<Assignment>()).Where(a => a.Object.Id == id).FirstOrDefault();
+
+            Assignment assignment = updateAssignment;
+            assignment.Status = status;
+
+            await firebase
+              .Child("assignments")
+              .Child(updateAssignment.Key)
+              .PutAsync(assignment);
+
+            return true;
+        } 
+      
 
         public async Task<List<Course>> GetCoursesList()
         {

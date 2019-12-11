@@ -21,10 +21,12 @@ namespace Team3.Views
             try { 
                 string Gradeid = SelectGrade.SelectedItem.ToString();
                 int gradeId = Convert.ToInt32(Gradeid.Substring(Gradeid.Length-1));
-
+                Random random = new Random();
+                int id= random.Next(1000);
                 Assignment assignment = new Assignment
                 {
-                    Title=AssignmentTitle.Text,
+                    Id= id,
+                    Title =AssignmentTitle.Text,
                     Description = DescriptionEntry.Text,
                     GradeId=gradeId,
                     CourseCode=SelectCourse.SelectedItem.ToString(),

@@ -21,21 +21,10 @@ namespace Team3.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-           
-           /*await App.Database.SaveUserAsync(new Models.User {
-                Id=123,
-                Username="user2",
-                FirstName="team",
-                LastName="three",
-                Password="password",
-                UserType="teacher",
-                DateCreated=DateTime.Now
-           });*/
         }
 
         public async void OnButtonClicked(object sender, EventArgs e)
         {
-
             string username = usernameEntry.Text;
             string password = passwordEntry.Text;
             try

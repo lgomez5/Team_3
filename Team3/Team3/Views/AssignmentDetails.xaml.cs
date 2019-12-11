@@ -17,12 +17,33 @@ namespace Team3.Views
 			InitializeComponent ();
 		}
 
+        public int id;
         public AssignmentDetails(Assignment assignment)
         {
             InitializeComponent();
-
+            id = assignment.Id;
             BindingContext = assignment;
         }
 
+        public async void OnStatusButtonClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                string status = ChangeStatus.SelectedItem.ToString();
+                if (!status.Equals(""))
+                {
+                    await App.Database.ChangeAssignmentStatus(id, status);
+
+                    await DisplayAlert("Assignment Status", "Status changed!", "Ok");
+                }
+                else {
+                    throw new NullReferenceException();
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                await DisplayAlert("Status change Error", "Please select the status", "Try Again");
+            }
+        }
     }
 }

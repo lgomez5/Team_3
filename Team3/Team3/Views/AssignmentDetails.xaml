@@ -13,6 +13,19 @@
             <Label Text="{Binding SubmissionDate}" FontSize="Small" TextColor="#3399ff"/>
             <Label Text="Status:" FontSize="Medium" />
             <Label Text="{Binding Status}" FontSize="Small" TextColor="#3399ff"/>
+
+            <Picker x:Name="ChangeStatus"
+                Title="Change Status">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type  x:String}">
+                        <x:String>In Progress</x:String>
+                        <x:String>Completed</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Button Text="Change Status" x:Name="submitStatusButton"
+                Clicked="OnStatusButtonClicked" BackgroundColor="#3399ff" TextColor="White" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
