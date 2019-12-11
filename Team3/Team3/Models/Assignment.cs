@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using Firebase.Database;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,5 +18,10 @@ namespace Team3.Models
         public string Description { get; set; }
         public string Teacher { get; set; }
         public string Status { get; set; }
+
+        public static implicit operator Assignment(FirebaseObject<Assignment> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
